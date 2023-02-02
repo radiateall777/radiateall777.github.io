@@ -9,8 +9,6 @@
     
     <title>
         
-            搭建个人博客 |
-        
         Ruibao&#39;s blog
     </title>
     
@@ -140,7 +138,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">搭建个人博客</span>
+            <span class="title-hover-animation"></span>
         </div>
 
         
@@ -159,32 +157,21 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-05-09 16:56:36</span>
-        <span class="mobile">2022-05-09 16:56</span>
+        <span class="pc">2023-01-29 11:07:11</span>
+        <span class="mobile">2023-01-29 11:07</span>
     </span>
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/hexo/">hexo</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>248 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>713 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 Mins</span>
         </span>
     
     
@@ -200,9 +187,70 @@
         
 
         <div class="article-content markdown-body">
-            <blockquote>
-<p>博客对于现在很多的技术人员应该都是必不可少的，无论你是从事IT行业或者的通信行业，书写个人博客都是一件非常有意义的事情，通过书写个人博客，我们可以把项目中遇到的问题记录下来加深记忆，同时，我们在学习新的知识点的时候，通过书写博客，可以把该知识点记录下来，以方便在次的使用，因此对于技术行业的工作者来说，写博客时间非常重要的事情。本篇博客也是希望通过我的经验来帮助你们快速搭建属于自己的博客，需要注意的是，本次博客搭建是在Mac上进行的，但是无论你是苹果系统还是Windows系统，搭建博客的过程都是一样的，唯一的差别可能是操作命令的差别，这点希望注意。</p>
-</blockquote>
+            <h3 id="初识C语言（一）"><a href="#初识C语言（一）" class="headerlink" title="初识C语言（一）"></a>初识C语言（一）</h3><ol>
+<li>写C代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: start </span><br><span class="line">op1=&gt;operation: Creat project</span><br><span class="line">op2=&gt;operation: Creat file</span><br><span class="line">op3=&gt;operation: Write source.file</span><br><span class="line">op4=&gt;operation: Write code</span><br><span class="line">e=&gt;end: end</span><br><span class="line"></span><br><span class="line">st(right)-&gt;op1(right)-&gt;op2(right)-&gt;op3(right)-&gt;op4(right)-&gt;e</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>数据类型</li>
+</ol>
+<ul>
+<li>char</li>
+<li>short</li>
+<li>int</li>
+<li>long</li>
+<li>long long</li>
+<li>float    ——单精度</li>
+<li>double   ——双精度</li>
+</ul>
+<p>为什么会有这么多类型？</p>
+<p>答：针对不同的数据大小所需要占用的内存，进行空间的分配有利于节省使用空间。</p>
+<p>sizeof（）函数作用：用于计算所申请的空间大小;</p>
+<p>计算机中的单位：bit——比特位  byte——字节</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>变量和常量</li>
+</ol>
+<p>​	变量的分类：局部变量和全局变量。</p>
+<ul>
+<li>局部变量：定义在代码块内部的变量</li>
+<li>全局变量：定义在代码块之外的变量</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;studio.h&gt;</span></span></span><br><span class="line"><span class="comment">//global var num1</span></span><br><span class="line"><span class="type">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">  </span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="comment">//局部变量num2</span></span><br><span class="line">  <span class="type">int</span> num2 = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：C语言规定，变量要定义在输入代码块的最前面，否则代码执行时会报错。</p>
+<p>变量的类型不同，决定了它们具有不同的作用域和生命周期，对于局部变量，其作用域是变量所在的局部范围，生命周期则是进入作用域生命周期开始，出作用域生命周期结束；对于全局变量，其作用域是整个工程，生命周期是整个程序的生命周期。</p>
+<p>常量的类别：字面常量、用const修饰的常变量、#define定义的标识符常量、枚举常量（关键字enum）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> &#123;</span></span><br><span class="line">  MALE,FEMALE,SECRET</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">const</span> <span class="type">int</span> n=<span class="number">10</span>; <span class="comment">//使用const进行修饰，只是使变量n具有常属性，n仍然是变量</span></span><br><span class="line">  <span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> <span class="title">s</span> =</span>FEMALE;<span class="comment">//MALE，FEMALE，SECRET的值分别代表0，1，2；</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>字符串</li>
+</ol>
+<p>由双引号引起的一串字符串称为字符串字面值，其中空字符串也叫字符串。</p>
+<p>需要注意的是，字符串的结束标志是”\0”的转义字符，在计算机计算字符串长度时，”\0”是结束标志，但不算字符串中的内容。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>;<span class="comment">//这种命名方式，会在字符串字符串结尾自动加上&quot;\0&quot;的转义字符作为结束标志。同时该字符串长度为3.</span></span><br><span class="line"><span class="type">char</span> arr2[] = &#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;<span class="comment">//字符串arr2[]在计算字符串长度时会是一个随机值，因为计算机只有识别道转移字符&#x27;\0&#x27;才会确定为字符串的结尾。</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>转义字符</li>
+</ol>
+<p>转义字符即改变原来的意思,例如:”\n”。</p>
+<ol start="6">
+<li>选择语句</li>
+</ol>
+<p>常用的循环语句：</p>
+<ul>
+<li>while循环</li>
+<li>for循环</li>
+<li>do···while循环</li>
+</ul>
+<ol start="7">
+<li>数组</li>
+</ol>
+<p>一组相同数据类型的变量集合。</p>
 
         </div>
 
@@ -210,11 +258,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：搭建个人博客</li>
+        <li>Post title：</li>
         <li>Post author：Ruibao</li>
-        <li>Create time：2022-05-09 16:56:36</li>
+        <li>Create time：2023-01-29 11:07:11</li>
         <li>
-            Post link：https://radiateall777.github.io/2022/05/09/如何搭建个人博客/
+            Post link：https://radiateall777.github.io/2023/01/29/初识C语言/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -226,41 +274,18 @@
         
 
         
-            <ul class="post-tags-box">
-                
-                    <li class="tag-item">
-                        <a href="/tags/hexo/">#hexo</a>&nbsp;
-                    </li>
-                
-            </ul>
-        
 
         
             <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/01/29/%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item"></span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
                 
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/05/07/hello-world/"
+                           href="/2022/05/09/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">搭建个人博客</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -478,7 +503,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%EF%BC%88%E4%B8%80%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">初识C语言（一）</span></a></li></ol>
     </div>
 </div>
         </aside>
