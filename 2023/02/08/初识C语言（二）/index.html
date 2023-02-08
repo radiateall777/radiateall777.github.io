@@ -157,8 +157,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2023-01-29 11:07:11</span>
-        <span class="mobile">2023-01-29 11:07</span>
+        <span class="pc">2023-02-08 22:03:37</span>
+        <span class="mobile">2023-02-08 22:03</span>
     </span>
     
     
@@ -166,12 +166,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>772 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>452 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 Mins</span>
         </span>
     
     
@@ -187,76 +187,41 @@
         
 
         <div class="article-content markdown-body">
-            <p>初识C语言（一）</p>
-<ol>
-<li>写C代码</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: start </span><br><span class="line">op1=&gt;operation: Creat project</span><br><span class="line">op2=&gt;operation: Creat file</span><br><span class="line">op3=&gt;operation: Write source.file</span><br><span class="line">op4=&gt;operation: Write code</span><br><span class="line">e=&gt;end: end</span><br><span class="line"></span><br><span class="line">st(right)-&gt;op1(right)-&gt;op2(right)-&gt;op3(right)-&gt;op4(right)-&gt;e</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>数据类型</li>
+            <h3 id="初识C语言（二）"><a href="#初识C语言（二）" class="headerlink" title="初识C语言（二）"></a>初识C语言（二）</h3><ol>
+<li><strong>C语言中常用的关键字</strong></li>
 </ol>
 <ul>
-<li>char</li>
-<li>short</li>
-<li>int</li>
-<li>long</li>
-<li>long long</li>
-<li>float    ——单精度</li>
-<li>double   ——双精度</li>
+<li>register关键字用来控制寄存器</li>
 </ul>
-<p>为什么会有这么多类型？</p>
-<p>答：针对不同的数据大小所需要占用的内存，进行空间的分配有利于节省使用空间。</p>
-<p>sizeof（）函数作用：用于计算所申请的空间大小;</p>
-<p>计算机中的单位：bit——比特位  byte——字节</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：在计算机中，数据存储在四个地方：寄存器、高速缓存、内存、硬盘</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">register</span> <span class="type">int</span> a =<span class="number">10</span>;<span class="comment">//这意味着建议把a定义成寄存器变量，注意这里是建议，具体要根据计算机程序设计的情况决定，由编译器进行判断是否将a定义成寄存器变量</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>typedy关键字—–类型重定义</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> u_int;<span class="comment">//这样就把usigned int类型重定义成u_int类型，这样在定义usigned int 类型的变量时就可以使用u_int进行定义</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> num1;</span><br><span class="line">u_int num2;</span><br><span class="line"><span class="comment">//以上两种定义方式等价</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：define不是关键字，它只是预处理指令。</p>
+<ul>
+<li>static关键字</li>
+</ul>
+<p>三个作用：</p>
+<p>（1）修饰局部变量，使局部变量的生命周期变长；</p>
+<p>（2）修饰全局变量，改变全局变量的作用域，使静态的全局变量只能在自己的所在的源文件内部使用，			出除了源文件就没法使用了</p>
+<p>（3）修饰函数，改变函数的链接属性（外部链接属性——&gt;内部链接属性）</p>
+<ol start="2">
+<li><strong>define定义常量和宏</strong></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX 100 <span class="comment">//#define定义的标识符常量</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">int</span> a = MAX;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求所给两个数的最大值</span></span><br><span class="line"><span class="comment">//1. 使用函数的方法</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Max</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;y)</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 采用宏定义的方法</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX(X,Y) (X&gt;Y?X:Y)<span class="comment">//优点是不用考虑数据类型了</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="type">int</span> b = <span class="number">20</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="type">int</span> max = Max(a,b);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;max = %d\n&quot;</span>,max);</span><br><span class="line">  </span><br><span class="line">  max = MAX(a,b);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;max = %d\n&quot;</span>,max);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 
 <ol start="3">
-<li>变量和常量</li>
+<li><strong>指针</strong></li>
 </ol>
-<p>​	变量的分类：局部变量和全局变量。</p>
-<ul>
-<li>局部变量：定义在代码块内部的变量</li>
-<li>全局变量：定义在代码块之外的变量</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;studio.h&gt;</span></span></span><br><span class="line"><span class="comment">//global var num1</span></span><br><span class="line"><span class="type">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">  </span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="comment">//局部变量num2</span></span><br><span class="line">  <span class="type">int</span> num2 = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：C语言规定，变量要定义在输入代码块的最前面，否则代码执行时会报错。</p>
-<p>变量的类型不同，决定了它们具有不同的作用域和生命周期，对于局部变量，其作用域是变量所在的局部范围，生命周期则是进入作用域生命周期开始，出作用域生命周期结束；对于全局变量，其作用域是整个工程，生命周期是整个程序的生命周期。</p>
-<p>常量的类别：字面常量、用const修饰的常变量、#define定义的标识符常量、枚举常量（关键字enum）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> &#123;</span></span><br><span class="line">  MALE,FEMALE,SECRET</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">const</span> <span class="type">int</span> n=<span class="number">10</span>; <span class="comment">//使用const进行修饰，只是使变量n具有常属性，n仍然是变量</span></span><br><span class="line">  <span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> <span class="title">s</span> =</span>FEMALE;<span class="comment">//MALE，FEMALE，SECRET的值分别代表0，1，2；</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="4">
-<li>字符串</li>
-</ol>
-<p>由双引号引起的一串字符串称为字符串字面值，其中空字符串也叫字符串。</p>
-<p>需要注意的是，字符串的结束标志是”\0”的转义字符，在计算机计算字符串长度时，”\0”是结束标志，但不算字符串中的内容。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> arr1[] = <span class="string">&quot;abc&quot;</span>;<span class="comment">//这种命名方式，会在字符串字符串结尾自动加上&quot;\0&quot;的转义字符作为结束标志。同时该字符串长度为3.</span></span><br><span class="line"><span class="type">char</span> arr2[] = &#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>&#125;;<span class="comment">//字符串arr2[]在计算字符串长度时会是一个随机值，因为计算机只有识别道转移字符&#x27;\0&#x27;才会确定为字符串的结尾。</span></span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>转义字符</li>
-</ol>
-<p>转义字符即改变原来的意思,例如:”\n”。</p>
-<ol start="6">
-<li>选择语句</li>
-</ol>
-<p>常用的循环语句：</p>
-<ul>
-<li>while循环</li>
-<li>for循环</li>
-<li>do···while循环</li>
-</ul>
-<ol start="7">
-<li>数组</li>
-</ol>
-<p>一组相同数据类型的变量集合。数组的下标是从0开始的。</p>
-<p>sizeof（）函数可以用来确定数组的大小。（所占用的字节大小）</p>
-<ol start="8">
-<li>原码，反码，补码</li>
-</ol>
-<p>负数在二进制中存储时存储的是二进制的补码</p>
+<p>内存：内存shi dian</p>
 
         </div>
 
@@ -266,9 +231,9 @@
     <ul>
         <li>Post title：</li>
         <li>Post author：Ruibao</li>
-        <li>Create time：2023-01-29 11:07:11</li>
+        <li>Create time：2023-02-08 22:03:37</li>
         <li>
-            Post link：https://radiateall777.github.io/2023/01/29/初识C语言/
+            Post link：https://radiateall777.github.io/2023/02/08/初识C语言（二）/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -284,29 +249,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/02/08/%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%EF%BC%88%E4%BA%8C%EF%BC%89/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item"></span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/05/09/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+                           href="/2023/01/29/%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">搭建个人博客</span>
+                                <span class="post-nav-title-item"></span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -524,7 +474,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%EF%BC%88%E4%BA%8C%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">初识C语言（二）</span></a></li></ol>
     </div>
 </div>
         </aside>
