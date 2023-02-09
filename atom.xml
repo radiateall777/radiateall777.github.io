@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-02-09T12:26:16.550Z</updated>
+  <updated>2023-02-09T14:44:19.102Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分支和循环</title>
+    <link href="http://example.com/2023/02/09/%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF/"/>
+    <id>http://example.com/2023/02/09/%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF/</id>
+    <published>2023-02-09T12:43:13.042Z</published>
+    <updated>2023-02-09T14:44:19.102Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>分支语句主要包括两种</li></ol><ul><li>if - else语句</li></ul><p>​注意：if-else语句默认只能控制一条语句；else的匹配是依据最近的if的匹配原则。</p><ul><li>switch语句</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(整形表达式)&#123;</span><br><span class="line">    <span class="keyword">case</span> 整形常量表达式:</span><br><span class="line">    语句项；</span><br><span class="line">&#125;<span class="comment">//注意break的使用</span></span><br></pre></td></tr></table></figure><ol start="2"><li>循环语句主要是三种</li></ol><ul><li>while循环</li><li>for循环</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>（表达式<span class="number">1</span>；表达式<span class="number">2</span>；表达式<span class="number">3</span>；）&#123;</span><br><span class="line">  循环语句；</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//表达式1:初始化部分，用于初始化值</span></span><br><span class="line"><span class="comment">//表达式2：条件判断部分，用于判断循环何时终止</span></span><br><span class="line"><span class="comment">//表达式3:调整部分，用于循环条件的调整</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;hehe&quot;</span>);</span><br><span class="line">&#125;<span class="comment">//此情况下判断条件恒为真，程序为死循环</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>注意：不可在for循环体内改变循环变量，防止for循环失去控制；建议for语句的循环控制变量的取值采用“前闭后开”的写法。</p><p>for循环初始化、调整和判断都可以省略，但是，for循环的判断部分如果省略，那判断条件就恒为真。</p><ul><li>do···while循环</li></ul><p>该情况下，循环语句至少执行一次。</p><p>这里介绍两个关键字：break和continue。</p><p>break：在循环中只要遇到break，就停止后面的所有循环，直接终止循环；</p><p>continue：用于终止本次循环，也就是不再执行continue语句后面的代码，直接跳到循环的判断部分。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(i&lt;=<span class="number">10</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(i == <span class="number">5</span>)</span><br><span class="line">    <span class="keyword">continue</span>;<span class="comment">//直接返回到循环的判断部分</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">  i++;</span><br><span class="line">&#125;<span class="comment">//程序进入死循环</span></span><br></pre></td></tr></table></figure><ol start="3"><li>getchar()与putchar()函数</li></ol><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ch = getchar();</span><br><span class="line"><span class="built_in">putchar</span>(ch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>((ch = getchar()) != EOF)&#123;</span><br><span class="line">  <span class="built_in">putchar</span>(ch);</span><br><span class="line">&#125;<span class="comment">//EOF - end of file --- -1稳健的结束标志</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line"><span class="type">char</span> password[<span class="number">20</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,password);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;请确认(y/n)：&gt;&quot;</span>);</span><br><span class="line">ret = getchar();</span><br><span class="line"><span class="keyword">if</span>(ret == <span class="string">&#x27;y&#x27;</span>)&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;确认成功\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;放弃确认\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这段代码存在的问题是，字符串输入在缓存区中会以&#x27;\0&#x27;为结束的标志位，所以getchar（）函数是从缓存区中读取读取所需要的内容，这样就使得getchar（）读取的内容为&#x27;\n&#x27;,而不是y/n,此时代码就出现了问题。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//对代码进行修正</span></span><br><span class="line"><span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line"><span class="type">char</span> password[<span class="number">20</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,password);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;请确认(y/n)：&gt;&quot;</span>);</span><br><span class="line"><span class="keyword">while</span>((ch = getchar()) != <span class="string">&#x27;\n&#x27;</span>)&#123;</span><br><span class="line">  ;</span><br><span class="line">&#125;<span class="comment">//清空缓存区</span></span><br><span class="line">ret = getchar();</span><br><span class="line"><span class="keyword">if</span>(ret == <span class="string">&#x27;y&#x27;</span>)&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;确认成功\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;放弃确认\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;分支语句主要包括两种&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;if - else语句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​		注意：if-else语句默认只能控制一条语句；else的匹配是依据最近的if的匹配原则。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;switch语句&lt;/li&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="C语言" scheme="http://example.com/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>初识C语言（二）</title>
