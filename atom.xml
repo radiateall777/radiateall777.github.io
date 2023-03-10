@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-02-17T13:08:30.405Z</updated>
+  <updated>2023-03-10T10:11:05.908Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数组-Array</title>
+    <link href="http://example.com/2023/03/10/%E6%95%B0%E7%BB%84/"/>
+    <id>http://example.com/2023/03/10/%E6%95%B0%E7%BB%84/</id>
+    <published>2023-03-10T10:11:05.908Z</published>
+    <updated>2023-03-10T10:11:05.908Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>数组的概念</li></ol><blockquote><p>数组指的是一组相同类型元素的集合。（在这里的类型可以是C语言中内置的数据类型，如：int，float，double等，也可以是我们自定义的数据类型）</p></blockquote><ol start="2"><li>一维数组的创建和初始化</li></ol><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建方式 type_t arr_name[const_n]</span></span><br><span class="line"><span class="comment">//type_t：指数组的类型</span></span><br><span class="line"><span class="comment">//const_n：是一个常量表达式，用来指定数组的大小，注意不可使用变量</span></span><br></pre></td></tr></table></figure><ol start="3"><li>数组的使用和存储</li></ol><ul><li>数组使用下标来访问</li><li>数组的大小可以通过计算来得到</li></ul><blockquote><p>在计算机中，数组在内存中是连续存放的，定义数组时会在计算机内存中开辟一组连续的内存空间用来存储数组的数据元素。</p></blockquote><ol start="4"><li>数组作为函数参数</li></ol><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//冒泡排序函数将一个数组进行排序</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Bubble_sort</span><span class="params">(<span class="type">int</span> arr[],<span class="type">int</span> sz)</span>&#123;</span><br><span class="line">    <span class="comment">//实现冒泡排序</span></span><br><span class="line">    <span class="type">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i&lt;sz<span class="number">-1</span> ;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j= <span class="number">0</span>;j&lt;sz-i<span class="number">-1</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*(arr+j)&gt;*(arr+<span class="number">1</span>+j))&#123;</span><br><span class="line">                temp = *(arr+j);</span><br><span class="line">                *(arr+j) = *(arr+<span class="number">1</span>+j);</span><br><span class="line">                *(arr+<span class="number">1</span>+j) = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> arr[] = &#123;<span class="number">3</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="type">int</span> sz = <span class="keyword">sizeof</span>(arr)/<span class="keyword">sizeof</span>(arr[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    Bubble_sort(arr,sz);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i&lt;sz ; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>下面堆冒泡排序进行优化：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Bubble_sort</span><span class="params">(<span class="type">int</span> arr,<span class="type">int</span> sz)</span>&#123;</span><br><span class="line">  <span class="comment">//假设所给数组已经有序，如果采用上述算法，程序依然会执行for循环不断进行比较和交换</span></span><br><span class="line">  <span class="comment">//这会导致没必要的浪费</span></span><br><span class="line">  <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)&#123;</span><br><span class="line">    <span class="type">int</span> flag = <span class="number">1</span>;<span class="comment">//假设这一次要排序的数据已经有序</span></span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(j = <span class="number">0</span>;j&lt;sz<span class="number">-1</span>-i;j++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">        <span class="type">int</span> temp = arr[j];</span><br><span class="line">        arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">        arr[j+<span class="number">1</span>] = temp;</span><br><span class="line">        flag = <span class="number">0</span>;<span class="comment">//本次循环排序数据不完全有序</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">1</span>)&#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>在大多数情况下，数组名等于首元素地址，当有两个例外情况：</p></blockquote><ul><li>sizeof（数组名）此时数组名表示整个数组</li><li>&amp;数组名，数组名指得是整个数组，&amp;数组名取出整个数组的地址</li></ul><p><strong>数组地址不等于数组首元素地址。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;数组的概念&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数组指的是一组相同类型元素的集合。（在这里的类型可以是C语言中内置的数据类型，如：int，float，double等，也可以是我们自定义的数据类型）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol s</summary>
+      
+    
+    
+    
+    
+    <category term="C语言" scheme="http://example.com/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>C语言中的函数</title>

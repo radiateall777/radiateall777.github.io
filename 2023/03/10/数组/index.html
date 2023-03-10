@@ -9,7 +9,7 @@
     
     <title>
         
-            C语言中的函数 |
+            数组-Array |
         
         Ruibao&#39;s blog
     </title>
@@ -140,7 +140,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">C语言中的函数</span>
+            <span class="title-hover-animation">数组-Array</span>
         </div>
 
         
@@ -159,8 +159,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2023-02-17 21:08:30</span>
-        <span class="mobile">2023-02-17 21:08</span>
+        <span class="pc">2023-03-10 18:11:05</span>
+        <span class="mobile">2023-03-10 18:11</span>
     </span>
     
     
@@ -169,7 +169,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/C-%E8%AF%AD%E8%A8%80/">C-语言</a>&nbsp;
+                        <a href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a>&nbsp;
                     </li>
                 
             </ul>
@@ -179,12 +179,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>845 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>564 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 Mins</span>
         </span>
     
     
@@ -201,76 +201,46 @@
 
         <div class="article-content markdown-body">
             <ol>
-<li>函数定义</li>
+<li>数组的概念</li>
 </ol>
 <blockquote>
-<p>在计算机科学中，子程序是一个大型程序中的某部分代码，由一个或者多个语句块组成，它负责完成某项特定任务，而且相对于其它代码具有相对独立性。</p>
+<p>数组指的是一组相同类型元素的集合。（在这里的类型可以是C语言中内置的数据类型，如：int，float，double等，也可以是我们自定义的数据类型）</p>
 </blockquote>
-<p>对于函数，一般会有输入参数并有返回值，函数提供对于过程的封装和细节的隐藏，这些代码通常被集成为软件库。</p>
 <ol start="2">
-<li><p>C语言常用的函数库</p>
-<ul>
-<li><p>IO函数</p>
-</li>
-<li><p>字符串操作函数</p>
-</li>
-<li><p>字符操作函数</p>
-</li>
-<li><p>内存操作函数</p>
-</li>
-<li><p>时间&#x2F;日期函数</p>
-</li>
-<li><p>数学函数</p>
-</li>
-<li><p>其它库函数</p>
-</li>
-</ul>
-</li>
-<li><p>自定义函数</p>
-</li>
+<li>一维数组的创建和初始化</li>
 </ol>
-<p>组成：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ret_type <span class="title function_">fun_name</span><span class="params">(para1 ,*)</span>&#123;</span><br><span class="line">  statement;</span><br><span class="line">&#125;</span><br><span class="line">ret_type: 返回类型</span><br><span class="line">fun_name: 函数名</span><br><span class="line">paral: 函数参数</span><br><span class="line"><span class="comment">//函数体交代函数是如何实现的</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建方式 type_t arr_name[const_n]</span></span><br><span class="line"><span class="comment">//type_t：指数组的类型</span></span><br><span class="line"><span class="comment">//const_n：是一个常量表达式，用来指定数组的大小，注意不可使用变量</span></span><br></pre></td></tr></table></figure>
 
 
 
+<ol start="3">
+<li>数组的使用和存储</li>
+</ol>
+<ul>
+<li>数组使用下标来访问</li>
+<li>数组的大小可以通过计算来得到</li>
+</ul>
+<blockquote>
+<p>在计算机中，数组在内存中是连续存放的，定义数组时会在计算机内存中开辟一组连续的内存空间用来存储数组的数据元素。</p>
+</blockquote>
 <ol start="4">
-<li>函数的参数</li>
+<li>数组作为函数参数</li>
 </ol>
-<p>实际参数：真是传给函数的参数，叫实参；</p>
-<p>形式参数：函数名后的括号中的参数。</p>
-<p>当实参传给形参时，形参只是实参的一份临时拷贝，因此对于形参的修改并不会改变实参的实际值的大小。</p>
-<ol start="5">
-<li><p>函数的调用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//冒泡排序函数将一个数组进行排序</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Bubble_sort</span><span class="params">(<span class="type">int</span> arr[],<span class="type">int</span> sz)</span>&#123;</span><br><span class="line">    <span class="comment">//实现冒泡排序</span></span><br><span class="line">    <span class="type">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i&lt;sz<span class="number">-1</span> ;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j= <span class="number">0</span>;j&lt;sz-i<span class="number">-1</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*(arr+j)&gt;*(arr+<span class="number">1</span>+j))&#123;</span><br><span class="line">                temp = *(arr+j);</span><br><span class="line">                *(arr+j) = *(arr+<span class="number">1</span>+j);</span><br><span class="line">                *(arr+<span class="number">1</span>+j) = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> arr[] = &#123;<span class="number">3</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="type">int</span> sz = <span class="keyword">sizeof</span>(arr)/<span class="keyword">sizeof</span>(arr[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    Bubble_sort(arr,sz);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i&lt;sz ; i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面堆冒泡排序进行优化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Bubble_sort</span><span class="params">(<span class="type">int</span> arr,<span class="type">int</span> sz)</span>&#123;</span><br><span class="line">  <span class="comment">//假设所给数组已经有序，如果采用上述算法，程序依然会执行for循环不断进行比较和交换</span></span><br><span class="line">  <span class="comment">//这会导致没必要的浪费</span></span><br><span class="line">  <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)&#123;</span><br><span class="line">    <span class="type">int</span> flag = <span class="number">1</span>;<span class="comment">//假设这一次要排序的数据已经有序</span></span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(j = <span class="number">0</span>;j&lt;sz<span class="number">-1</span>-i;j++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">        <span class="type">int</span> temp = arr[j];</span><br><span class="line">        arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">        arr[j+<span class="number">1</span>] = temp;</span><br><span class="line">        flag = <span class="number">0</span>;<span class="comment">//本次循环排序数据不完全有序</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">1</span>)&#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>在大多数情况下，数组名等于首元素地址，当有两个例外情况：</p>
+</blockquote>
 <ul>
-<li>传值调用：函数的实参和形参分别占用不同的内存块，对形参的修改不会影响到实参</li>
-<li>传址调用：把函数外部创建的变量的内存地址传递给函数的一种调用方式。</li>
+<li>sizeof（数组名）此时数组名表示整个数组</li>
+<li>&amp;数组名，数组名指得是整个数组，&amp;数组名取出整个数组的地址</li>
 </ul>
-<p>这种方式可以让函数与函数外部的变量建立起真正的联系，也就是函数内部可以直接操作函数外部的变量。</p>
-</li>
-<li><p>函数的声明和定义</p>
-<ul>
-<li>函数声明：告诉编译器有一个函数叫什么，参数是什么，返回类型是什么，但具体函数的实现是否存在无关紧要；函数声明一般出现在函数使用之前，要满足先声明后使用；函数声明一般放在头文件中。</li>
-<li>函数定义：指函数的具体实现，交代函数的功能。</li>
-</ul>
-<p>函数的定义和声明的使用分别放在.c和.h文件中。</p>
-</li>
-<li><p>函数的递归</p>
-</li>
-</ol>
-<p>​	递归：函数调用自身的编程技巧称为递归。（递归的思想：把大师化小）。</p>
-<p>​	递归的两个必要条件：</p>
-<ul>
-<li>存在限制条件，当满足这个条件时，递归不在继续。</li>
-<li>每次递归调用都要越来越接近这个限制条件。</li>
-</ul>
-<p>递归中需要注意的问题：栈溢出。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写函数不允许创建临时变量，求字符串长度</span></span><br><span class="line"><span class="comment">//利用递归调用的思想</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">my_strlen</span><span class="params">(<span class="type">int</span> arr[])</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(*arr != <span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> my_strlen(str+<span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="type">char</span> arr[] = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">  <span class="type">int</span> len = my_strlen(arr);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,len);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写函数，求n的阶乘</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fac</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fac(n<span class="number">-1</span>) * n ;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//编写函数，实现求解斐波那契数列</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Fib</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n&lt;=<span class="number">2</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Fib(n<span class="number">-1</span>)+Fib(n<span class="number">-2</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要注意的是，每一次递归的过程都会产生很大的空间浪费，因为递归会产生量的重复操作。</span></span><br><span class="line"><span class="comment">//使用非递归的思想求解第n个斐波那契数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Fib</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">  <span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> b = <span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> c = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(n&gt;<span class="number">2</span>)&#123;</span><br><span class="line">    c = a+b;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">    n--;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p><strong>数组地址不等于数组首元素地址。</strong></p>
 
         </div>
 
@@ -278,11 +248,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：C语言中的函数</li>
+        <li>Post title：数组-Array</li>
         <li>Post author：Ruibao</li>
-        <li>Create time：2023-02-17 21:08:30</li>
+        <li>Create time：2023-03-10 18:11:05</li>
         <li>
-            Post link：https://radiateall777.github.io/2023/02/17/C语言中的函数/
+            Post link：https://radiateall777.github.io/2023/03/10/数组/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -297,7 +267,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/C-%E8%AF%AD%E8%A8%80/">#C-语言</a>&nbsp;
+                        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>&nbsp;
                     </li>
                 
             </ul>
@@ -306,29 +276,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/03/10/%E6%95%B0%E7%BB%84/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">数组-Array</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2023/02/13/%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"
+                           href="/2023/02/17/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">分支和循环练习</span>
+                                <span class="post-nav-title-item">C语言中的函数</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
