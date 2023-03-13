@@ -9,7 +9,7 @@
     
     <title>
         
-            指针初阶 |
+            数据的存储 |
         
         Ruibao&#39;s blog
     </title>
@@ -140,7 +140,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">指针初阶</span>
+            <span class="title-hover-animation">数据的存储</span>
         </div>
 
         
@@ -159,8 +159,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2023-03-12 20:20:06</span>
-        <span class="mobile">2023-03-12 20:20</span>
+        <span class="pc">2023-03-13 15:14:55</span>
+        <span class="mobile">2023-03-13 15:14</span>
     </span>
     
     
@@ -179,7 +179,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>592 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>782 Words</span>
         </span>
     
     
@@ -200,45 +200,52 @@
         
 
         <div class="article-content markdown-body">
-            <ol>
-<li>指针的概念</li>
+            <h3 id="数据类型的介绍"><a href="#数据类型的介绍" class="headerlink" title="数据类型的介绍"></a>数据类型的介绍</h3><p>在C语言中数据类型主要包括：内置类型和自定义类型。</p>
+<p>数据类型具有非常实际的意义，根据数据类型可以确定所开辟的空间的大小。</p>
+<ol>
+<li><p>类型的归类</p>
+<ul>
+<li>整型家族：char、int、short、long</li>
+<li>浮点型家族：float、double</li>
+</ul>
+</li>
+<li><p>构造类型</p>
+<ul>
+<li>数组类型</li>
+<li>结构体类型（struct）</li>
+<li>枚举类型（enum）</li>
+<li>联合类型（union）</li>
+</ul>
+</li>
 </ol>
 <blockquote>
-<p>在计算机科学中，指针（pointer）是编程语言中的一个对象，利用地址，他的值直接指向存在电脑存储器中另一个地方的值，由于通过地址可以找到所需的变量单元，可以说指针指向该变量单元。因此，将地址形象化为指针。（即通过它可以找到以它为地址的内存单元。</p>
+<p>空类型的定义：void表示空类型（无类型），通常应用于函数的返回类型，函数的参数，指针类型。</p>
 </blockquote>
-<p><strong>简单来说，指针是个变量，用来存放内存的地址</strong></p>
-<ol start="2">
-<li>指针类型</li>
-</ol>
+<h3 id="整型在内存中的存储"><a href="#整型在内存中的存储" class="headerlink" title="整型在内存中的存储"></a>整型在内存中的存储</h3><h5 id="1-原码、反码、补码的概念"><a href="#1-原码、反码、补码的概念" class="headerlink" title="1. 原码、反码、补码的概念"></a>1. 原码、反码、补码的概念</h5><pre><code>+ 原码：直接将整数按照二进制的形式进行翻译即可
++ 反码：原码的符号位不变，其它位按位取反
++ 补码：反码+1就是补码
+</code></pre>
+<p><strong>无符号原、反、补相同</strong></p>
+<h5 id="2-大小端存储模式"><a href="#2-大小端存储模式" class="headerlink" title="2. 大小端存储模式"></a>2. 大小端存储模式</h5><pre><code>+ 大端存储模式：指数据的低位保存在内存中的高地址中，而数据的高位，保存在内存中的低地址处；
++ 小端存储模式：指数据的低位保存在内存中的低地址中，而数据的高位，保存在内存中的高地址处。
+</code></pre>
+<blockquote>
+<p>之所以有大小端模式之分，是因为在计算机系统中，我们是以字节为单位的，每个地址单元都对应着一个字节，一个字节为8个bit。但在C语言中还存在着除了8bit的char类型之外的16bit的short类型和32bit的long类型，另外，对于位数大于8bit的处理器，由于寄存器的宽度大于1个字节，那么必然存在着一个问题，如何将多个字节安排的问题。因此就导致了大小端存储模式的产生。</p>
+</blockquote>
+<h3 id="浮点型在内存中的存储"><a href="#浮点型在内存中的存储" class="headerlink" title="浮点型在内存中的存储"></a>浮点型在内存中的存储</h3><p>任意一个二进制浮点数v可以表示成下面的形式</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">-1</span>)^s*M*<span class="number">2</span>^E;</span><br><span class="line"><span class="comment">//(-1)^表示符号位，当s = 0时，V为正数；当s = 1时，V为负数；</span></span><br><span class="line"><span class="comment">//M表示有效数字，大于等于1，小于2；（因为二进制只有0和1；</span></span><br><span class="line"><span class="comment">//2^E表示指数位</span></span><br><span class="line"></span><br><span class="line">例如：十进制<span class="number">5.0</span>，写成二进制位<span class="number">101.0</span>，相当于<span class="number">1.01</span>*<span class="number">2</span>^<span class="number">2</span>;</span><br><span class="line">按照上面多给的格式可知：s = <span class="number">0</span>；M = <span class="number">1.01</span>；E = <span class="number">2</span>；</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>指针类型决定了，指针在解引用操作时，所能访问的空间大小</li>
-<li>决定了指针+ - 整数时，指针的步长</li>
+<li>对于32位浮点数，最高1位表示符号位，接着8位表示指数E，剩下23位表示有效数字M</li>
+<li>对于64位浮点数，最高1位表示符号位，接着11位表示指数E，剩下52位表示有效数字M</li>
 </ul>
-<p>野指针概念：野指针就是指针变量指向的位置是未知的。（局部的指针变量未初始化就被初始化为一个随机值，这样做是有很大问题的）。</p>
-<p><strong>指针一定要进行初始化</strong></p>
-<p>规避野指针的方法：</p>
-<ul>
-<li>指针初始化</li>
-<li>小心指针越界</li>
-<li>指针指向空间释放，将指针置为空可以保留该指针</li>
-<li>指针使用之前必须检验指针的有效性</li>
-</ul>
-<ol start="3">
-<li>指针运算</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指针加减整数</span></span><br><span class="line"><span class="comment">//指针减指针得到中间元素的个数</span></span><br><span class="line">arr[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,&amp;arr[<span class="number">9</span>]-&amp;arr[<span class="number">0</span>]);<span class="comment">//打印中间元素的个数：9</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用指针模拟strlen函数的实现</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">my_strlen</span><span class="params">(<span class="type">char</span> *arr)</span>&#123;</span><br><span class="line">  <span class="comment">//int count = 0;</span></span><br><span class="line">  <span class="type">char</span>* start = arr;</span><br><span class="line">  <span class="type">char</span>* end = arr;</span><br><span class="line">  <span class="keyword">while</span>(*arr != <span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">    end++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> end - start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>由于1&lt;&#x3D;M&lt;2，也就是数M可以写成1.#####的形式，‘ ##### ’表示小数部分，在计算机内存内部保存M时，默认这个数的第一位总是1，因此可以被抹去，只保留后面的小数部分</p>
+</blockquote>
+<p><strong>E为一个无符号整数，所以负数次方要加入一个中间值转化为无符号</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5.5</span> -----&gt; 二进制为：<span class="number">101.1</span>  -----&gt; <span class="number">1.011</span>*<span class="number">2</span>^<span class="number">2</span>  ------&gt; (<span class="number">-1</span>)^<span class="number">0</span>*<span class="number">1.011</span>*<span class="number">2</span>^<span class="number">2</span>;</span><br><span class="line">s = <span class="number">0</span>  ;   M = <span class="number">1.011</span>  ;  E = <span class="number">2</span>;</span><br><span class="line">——&gt; <span class="number">0</span> <span class="number">10000001</span> <span class="number">01100000000000000000000</span>;</span><br><span class="line">——&gt; <span class="number">40</span> b0 <span class="number">00</span> <span class="number">00</span> 十六进制</span><br></pre></td></tr></table></figure>
 
 
-
-<ol start="4">
-<li>指针和数组</li>
-</ol>
-<p>在前面学习中其实已经讨论过，在大多数情况下，数组名表示首元素的地址，但是有两种例外情况：</p>
-<ul>
-<li>sizeof（数组名）这里的数组名表示整个数组，此时计算整个数组所占内存空间的大小。</li>
-<li>&amp;数组名，这时数组名表示的是整个数组的地址，而不是首元素的地址。</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p\n&quot;</span>,arr);<span class="comment">//此时数组名表示首元素的地址</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p\n&quot;</span>,&amp;arr[<span class="number">0</span>]);<span class="comment">//这种情况和上面等价，表示首元素的地址</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p\n&quot;</span>,&amp;arr);<span class="comment">//此时数组名表示整个数组的地址，虽然在值上与上面两种情况相同，但它们的含义已经不一样了</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -249,11 +256,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：指针初阶</li>
+        <li>Post title：数据的存储</li>
         <li>Post author：Ruibao</li>
-        <li>Create time：2023-03-12 20:20:06</li>
+        <li>Create time：2023-03-13 15:14:55</li>
         <li>
-            Post link：https://radiateall777.github.io/2023/03/12/指针/
+            Post link：https://radiateall777.github.io/2023/03/13/数据的存储/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -277,29 +284,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/03/13/%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">数据的存储</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2023/03/11/%E6%93%8D%E4%BD%9C%E7%AC%A6/"
+                           href="/2023/03/12/%E6%8C%87%E9%92%88/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">操作符详解</span>
+                                <span class="post-nav-title-item">指针初阶</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -517,7 +509,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">数据类型的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E5%9E%8B%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8"><span class="nav-number">2.</span> <span class="nav-text">整型在内存中的存储</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 原码、反码、补码的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%A4%A7%E5%B0%8F%E7%AB%AF%E5%AD%98%E5%82%A8%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. 大小端存储模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8"><span class="nav-number">3.</span> <span class="nav-text">浮点型在内存中的存储</span></a></li></ol>
     </div>
 </div>
         </aside>
