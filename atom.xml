@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-03-13T07:14:55.420Z</updated>
+  <updated>2023-03-16T13:32:59.044Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>指针详解</title>
+    <link href="http://example.com/2023/03/16/%E6%8C%87%E9%92%88%E7%9A%84%E8%BF%9B%E9%98%B6/"/>
+    <id>http://example.com/2023/03/16/%E6%8C%87%E9%92%88%E7%9A%84%E8%BF%9B%E9%98%B6/</id>
+    <published>2023-03-16T13:32:59.044Z</published>
+    <updated>2023-03-16T13:32:59.044Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="常用的指针类型及概念"><a href="#常用的指针类型及概念" class="headerlink" title="常用的指针类型及概念"></a>常用的指针类型及概念</h3><ul><li><p>字符指针：char*</p></li><li><p>指针数组：指针数组是数组，它的元素类型是指针。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* parr[<span class="number">4</span>];<span class="comment">//存放整型指针的数组</span></span><br><span class="line"><span class="type">char</span>* arr2[<span class="number">4</span>];<span class="comment">//存放字符指针的数组</span></span><br><span class="line"><span class="type">char</span>** arr3[<span class="number">5</span>]; <span class="comment">//二级字符指针的数组</span></span><br></pre></td></tr></table></figure></li><li><p>数组指针：数组指针是指针，该指针指向一个数组，存放数组的地址。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="comment">//arr - 首元素的地址</span></span><br><span class="line"><span class="comment">//&amp;arr[0] - 首元素的地址</span></span><br><span class="line"><span class="comment">//&amp;arr - 数组的地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子1.</span></span><br><span class="line"><span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="type">int</span> (*pa)[<span class="number">10</span>] = &amp;arr;<span class="comment">//定义了一个指针pa，指向一个数组，数组中有10个元素每个元素是int类型的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子2.</span></span><br><span class="line"><span class="type">int</span> *pa2[<span class="number">10</span>];<span class="comment">//pa2是一个数组，数组有10个元素，数组的每一个元素是一个int类型的指针</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子3.</span></span><br><span class="line"><span class="type">int</span> (*pa3[<span class="number">10</span>])[<span class="number">5</span>];<span class="comment">//pa3是一个数组，数组有10个元素，每个元素是一个数组指针，该数组指针指向一个含有5个元素的数组，该数组的每个元素是int类型的</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>函数指针：指向函数的指针</p></li></ul><p>​<strong>&amp;函数名和函数名都是函数的地址，这点与数组是不同的</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数指针的声明</span></span><br><span class="line"><span class="type">int</span> (*pa)(<span class="type">int</span> , <span class="type">int</span>);<span class="comment">//pa是一个指针，该指针指向一个函数，该函数有两个int类型的参数，返回值是int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子：</span></span><br><span class="line">(*(<span class="type">void</span>(*)())<span class="number">0</span>)();<span class="comment">//这里是一次函数的调用</span></span><br><span class="line"><span class="comment">//(void(*)()-函数的指针类型，放在0前把0强制转换成函数指针类型，接着调用0地址处的该函数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li><p>函数指针数组</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int (*parr[4])(int , int);//parr是一个含有4个元素的数组，每个元素是一个函数指针，该函数指针所指向的函数含有两个int类型的参数，返回值是int类型的。</span><br></pre></td></tr></table></figure></li></ul><p>​函数指针可以被用于：转移表。</p><ul><li>指向函数指针数组的指针：这是一个指针，该指针指向一个函数指针数组，该数组的每一个元素是一个函数指针。</li></ul><h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><blockquote><p>回调函数就是通过函数指针调用的函数，如果你把函数的指针（地址），作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数值，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的时间或条件发生时，由另外的一方调用的，用于对该事件或条件的响应。</p></blockquote><h4 id="了解void-指针"><a href="#了解void-指针" class="headerlink" title="了解void* 指针"></a>了解void* 指针</h4><p>void* 所定义的指针可以接收任意类型的指针，但需要注意的是，不可对该类型的指针进行解引用操作，因为void*类型的指针并没有规定其所能访问的字节数目，所以它也不能用于’ + ‘ ‘ - ‘整数的操作。</p><p>qsort函数的实现可以有利于我们对函数指针有更为清晰的认识。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;常用的指针类型及概念&quot;&gt;&lt;a href=&quot;#常用的指针类型及概念&quot; class=&quot;headerlink&quot; title=&quot;常用的指针类型及概念&quot;&gt;&lt;/a&gt;常用的指针类型及概念&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;字符指针：char*&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;指</summary>
+      
+    
+    
+    
+    
+    <category term="C语言" scheme="http://example.com/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>数据的存储</title>
