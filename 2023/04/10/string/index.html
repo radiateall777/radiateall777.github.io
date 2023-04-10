@@ -9,7 +9,7 @@
     
     <title>
         
-            指针详解 |
+            string |
         
         Ruibao&#39;s blog
     </title>
@@ -140,7 +140,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">指针详解</span>
+            <span class="title-hover-animation">string</span>
         </div>
 
         
@@ -159,8 +159,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2023-03-16 21:32:59</span>
-        <span class="mobile">2023-03-16 21:32</span>
+        <span class="pc">2023-04-10 11:28:28</span>
+        <span class="mobile">2023-04-10 11:28</span>
     </span>
     
     
@@ -169,7 +169,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a>&nbsp;
+                        <a href="/tags/python/">python</a>&nbsp;
                     </li>
                 
             </ul>
@@ -179,12 +179,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>761 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>810 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 Mins</span>
         </span>
     
     
@@ -200,36 +200,67 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="常用的指针类型及概念"><a href="#常用的指针类型及概念" class="headerlink" title="常用的指针类型及概念"></a>常用的指针类型及概念</h3><ul>
-<li><p>字符指针：char*</p>
-</li>
-<li><p>指针数组：指针数组是数组，它的元素类型是指针。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* parr[<span class="number">4</span>];<span class="comment">//存放整型指针的数组</span></span><br><span class="line"><span class="type">char</span>* arr2[<span class="number">4</span>];<span class="comment">//存放字符指针的数组</span></span><br><span class="line"><span class="type">char</span>** arr3[<span class="number">5</span>]; <span class="comment">//二级字符指针的数组</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组指针：数组指针是指针，该指针指向一个数组，存放数组的地址。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="comment">//arr - 首元素的地址</span></span><br><span class="line"><span class="comment">//&amp;arr[0] - 首元素的地址</span></span><br><span class="line"><span class="comment">//&amp;arr - 数组的地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子1.</span></span><br><span class="line"><span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="type">int</span> (*pa)[<span class="number">10</span>] = &amp;arr;<span class="comment">//定义了一个指针pa，指向一个数组，数组中有10个元素每个元素是int类型的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子2.</span></span><br><span class="line"><span class="type">int</span> *pa2[<span class="number">10</span>];<span class="comment">//pa2是一个数组，数组有10个元素，数组的每一个元素是一个int类型的指针</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子3.</span></span><br><span class="line"><span class="type">int</span> (*pa3[<span class="number">10</span>])[<span class="number">5</span>];<span class="comment">//pa3是一个数组，数组有10个元素，每个元素是一个数组指针，该数组指针指向一个含有5个元素的数组，该数组的每个元素是int类型的</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>函数指针：指向函数的指针</p>
-</li>
+            <p>注意：字符串是不可变的，所有的元素赋值和切片赋值都是非法的。</p>
+<h4 id="设置格式字符串"><a href="#设置格式字符串" class="headerlink" title="设置格式字符串"></a>设置格式字符串</h4><p>在格式字符串中，最重要的是替换字段。替换字段由如下部分组成，其中每个部分都是可选的：</p>
+<ul>
+<li>字段名：索引或标识符，指出要设置哪个值的格式并使用结果来替换该字段。除指定值外，还可指定值的特定部分，如列表中的元素</li>
+<li>转换标志：跟在叹号后面的一个单个字符。当前支持的字符包括r（表示repr）、s（表示str）和a（表示ascii）。如果你指定了转换标志，将不使用对象本身的格式设置机制，而是使用指定的函数将对象转化为字符串，再做进一步的格式设置。</li>
+<li>格式说明符：跟在冒号后面的表达式（这种表示是使用微型格式指定语言表示的）。格式说明符让我们能够详细地指定最终的格式，包括格式类型（如字符串、浮点数或十六进制数），字段宽度和数的精度，如何显示符号和千位分隔符，以及各种对其和填充方式</li>
 </ul>
-<p>​	<strong>&amp;函数名和函数名都是函数的地址，这点与数组是不同的</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数指针的声明</span></span><br><span class="line"><span class="type">int</span> (*pa)(<span class="type">int</span> , <span class="type">int</span>);<span class="comment">//pa是一个指针，该指针指向一个函数，该函数有两个int类型的参数，返回值是int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子：</span></span><br><span class="line">(*(<span class="type">void</span>(*)())<span class="number">0</span>)();<span class="comment">//这里是一次函数的调用</span></span><br><span class="line"><span class="comment">//(void(*)()-函数的指针类型，放在0前把0强制转换成函数指针类型，接着调用0地址处的该函数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li>替换字段名</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&#123;foo&#125; &#123;&#125; &#123;bar&#125; &#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">1</span>, <span class="number">2</span>, bar = <span class="number">4</span>, foo =<span class="number">3</span>)</span><br><span class="line"><span class="comment">#结果：‘3 1 4 2’</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&#123;foo&#125; &#123;0&#125; &#123;bar&#125; &#123;1&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">1</span>, <span class="number">2</span>, bar = <span class="number">4</span>, foo = <span class="number">3</span>)</span><br><span class="line"><span class="comment">#结果： ‘3 1 2 4’</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：不可以同时使用自动编号和人工编号，这样会使代码变得混乱</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fullname = [<span class="string">&quot;Alfred&quot;</span>,<span class="string">&quot;Smooktomuch&quot;</span>]</span><br><span class="line"><span class="string">&quot;Mr &#123;name[1]&#125;&quot;</span>.fomat&#123;name = fullname&#125;</span><br><span class="line"><span class="comment">#结果：&#x27;Mr Sooktomuch&#x27;</span></span><br><span class="line"></span><br><span class="line">tmpl = <span class="string">&quot;The &#123;mod.__name__&#125; module defines the value &#123;mod.pi&#125; for pi&quot;</span></span><br><span class="line">tmpl.<span class="built_in">format</span>(mod = math)</span><br><span class="line"><span class="comment">#结果：&#x27;The math module defines the value 3.141592653589793 for pi&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><p>基本转换</p>
+</li>
+<li><p>符号、对齐和用0填充</p>
+</li>
+</ol>
+<h4 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h4><ul>
+<li>center</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法center通过两边填充字符（默认为空格）让字符串居中</span></span><br><span class="line"><span class="string">&#x27;the middle by Jimmy Eat world&#x27;</span>,center(<span class="number">39</span>)</span><br><span class="line"><span class="comment">#结果：&#x27; The Middle by Jimmy Eat World &#x27;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>函数指针数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int (*parr[4])(int , int);//parr是一个含有4个元素的数组，每个元素是一个函数指针，该函数指针所指向的函数含有两个int类型的参数，返回值是int类型的。</span><br></pre></td></tr></table></figure></li>
+<li>find</li>
 </ul>
-<p>​	函数指针可以被用于：转移表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#反法find在字符串中查找字串。如果找到，就返回字串的第一个字符的索引，否则就返回-1</span></span><br><span class="line"><span class="string">&#x27;with a moo-moo here, and a moo-moo there&#x27;</span>.find(<span class="string">&#x27;moo&#x27;</span>)</span><br><span class="line">结果：<span class="number">7</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>指向函数指针数组的指针：这是一个指针，该指针指向一个函数指针数组，该数组的每一个元素是一个函数指针。</li>
+<li>join</li>
 </ul>
-<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><blockquote>
-<p>回调函数就是通过函数指针调用的函数，如果你把函数的指针（地址），作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数值，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的时间或条件发生时，由另外的一方调用的，用于对该事件或条件的响应。</p>
-</blockquote>
-<h4 id="了解void-指针"><a href="#了解void-指针" class="headerlink" title="了解void* 指针"></a>了解void* 指针</h4><p>void* 所定义的指针可以接收任意类型的指针，但需要注意的是，不可对该类型的指针进行解引用操作，因为void*类型的指针并没有规定其所能访问的字节数目，所以它也不能用于’ + ‘ ‘ - ‘整数的操作。</p>
-<p>qsort函数的实现可以有利于我们对函数指针有更为清晰的认识。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法join用于合并序列的元素</span></span><br><span class="line">seq = [<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span> , <span class="number">4</span> ,<span class="number">5</span>]</span><br><span class="line">sep = <span class="string">&#x27;+&#x27;</span></span><br><span class="line">sep.join(seq)<span class="comment">#这样做是错误的，因为方法join所合并序列的元素必须是字符串</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lower</li>
+</ul>
+<p>​	方法lower用于返回字符串的小写版本。</p>
+<ul>
+<li>replace</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法replace将指定子串都替换为另一个字符串，并返回替换后的结果</span></span><br><span class="line"><span class="string">&#x27;This is a test&#x27;</span>.replace(<span class="string">&#x27;is&#x27;</span>,<span class="string">&#x27;eez&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>split</li>
+</ul>
+<p>​	方法split作用于join相反，用于将字符串拆分为序列。</p>
+<ul>
+<li>strip</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法strip将字符串开头与末尾的空白删除，并返回删除后的结果</span></span><br><span class="line"><span class="string">&#x27;     internal whitespace is kept.    &#x27;</span>.strip</span><br><span class="line"><span class="comment">#结果：&#x27;internal whitespace is kept.&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>translate</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法translate与replace一样替换字符串的特定部分，但不同的是它只能进行单字符替换这个方法的优势是能进行多个字符的替换</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -237,11 +268,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：指针详解</li>
+        <li>Post title：string</li>
         <li>Post author：Ruibao</li>
-        <li>Create time：2023-03-16 21:32:59</li>
+        <li>Create time：2023-04-10 11:28:28</li>
         <li>
-            Post link：https://radiateall777.github.io/2023/03/16/指针的进阶/
+            Post link：https://radiateall777.github.io/2023/04/10/string/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -256,7 +287,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>&nbsp;
+                        <a href="/tags/python/">#python</a>&nbsp;
                     </li>
                 
             </ul>
@@ -268,13 +299,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2023/04/08/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"
+                           href="/2023/04/10/%E5%AD%97%E5%85%B8/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">python基础知识</span>
+                                <span class="post-nav-title-item">字典</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -284,10 +315,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2023/03/13/%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8/"
+                           href="/2023/04/08/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">数据的存储</span>
+                                <span class="post-nav-title-item">python基础知识</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -505,7 +536,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%8F%8A%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">常用的指针类型及概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3void-%E6%8C%87%E9%92%88"><span class="nav-number">1.2.</span> <span class="nav-text">了解void* 指针</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text">设置格式字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">字符串方法</span></a></li></ol>
     </div>
 </div>
         </aside>
