@@ -9,7 +9,7 @@
     
     <title>
         
-            分支和循环 |
+            抽象 |
         
         Ruibao&#39;s blog
     </title>
@@ -140,7 +140,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">分支和循环</span>
+            <span class="title-hover-animation">抽象</span>
         </div>
 
         
@@ -159,8 +159,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2023-02-09 20:43:13</span>
-        <span class="mobile">2023-02-09 20:43</span>
+        <span class="pc">2023-04-11 23:22:24</span>
+        <span class="mobile">2023-04-11 23:22</span>
     </span>
     
     
@@ -169,7 +169,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a>&nbsp;
+                        <a href="/tags/python/">python</a>&nbsp;
                     </li>
                 
             </ul>
@@ -179,12 +179,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>631 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>4 Mins</span>
         </span>
     
     
@@ -200,47 +200,109 @@
         
 
         <div class="article-content markdown-body">
-            <ol>
-<li>分支语句主要包括两种</li>
+            <blockquote>
+<p>抽象就是如何将语句组成函数，这样可以简化代码的书写，实现同样的功能时，只需要调用一次函数就可以了，这与C语言中的函数是相似的概念。</p>
+</blockquote>
+<h4 id="抽象和结构"><a href="#抽象和结构" class="headerlink" title="抽象和结构"></a>抽象和结构</h4><p>抽象可以节省人力，最重要的优点是：抽象是程序能够被人理解的关键。函数其实就是结构化编程的核心。</p>
+<h4 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h4><ol>
+<li>给函数编写文档</li>
 </ol>
+<p>​	要给函数编写文档，以确保其他人能够理解，可添加注释。放在函数开头的字符串称为文档字符串，这将作为函数的一部分存储起来，这种给编写注释的方式非常有利于更好的理解函数的作用。</p>
+<ol start="2">
+<li>其实并不是函数的函数</li>
+</ol>
+<p>​	数学中的函数总是返回根据参数计算得到的结果。在python中有些函数什么都不返回，这样的函数称为过程，什么都不返回的函数不包含return语句，或者包含return语句，但没有在return后面指定值。</p>
+<h4 id="参数魔法"><a href="#参数魔法" class="headerlink" title="参数魔法"></a>参数魔法</h4><ol>
+<li>值从哪里来</li>
+</ol>
+<p>​	在def语句中，位于函数名后面的变量通常称为形参，而调用函数时提供的参数称为实参。</p>
+<ol start="2">
+<li>可以修改参数吗</li>
+</ol>
+<p>​	函数通过参数获取一系列值，参数不过是变量而已，行为完全与你预期相同，在函数内部给参数赋值对外部没有任何影响。</p>
 <ul>
-<li>if - else语句</li>
+<li><p>为何要修改参数	</p>
+<p>在提高程序的抽象程度方面，使用函数来修改数据结构是一种不错的方式。</p>
+</li>
 </ul>
-<p>​		注意：if-else语句默认只能控制一条语句；else的匹配是依据最近的if的匹配原则。</p>
+<ol start="3">
+<li>关键字参数和默认值</li>
+</ol>
+<blockquote>
+<p>注意:通常不应结合使用位置参数和关键字参数，除非必不可少的参数很少，而带默认值的可选参数很多，否则不应结合使用关键字参数和位置参数。</p>
+</blockquote>
+<ol start="4">
+<li>收集参数</li>
+</ol>
+<h4 id="对象魔法"><a href="#对象魔法" class="headerlink" title="对象魔法"></a>对象魔法</h4><blockquote>
+<p>对象意味着一系列数据以及一套访问和操作这些数据的方法。</p>
+</blockquote>
+<p>使用对象的好处</p>
 <ul>
-<li>switch语句</li>
+<li>多态：可对不同的对象执行相同的操作，而这些操作就像“被施了魔法“一样能够正常运行</li>
+<li>封装：对外部隐藏有关对象工作原理的细节</li>
+<li>继承：可基于通用类创建专用类</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(整形表达式)&#123;</span><br><span class="line">    <span class="keyword">case</span> 整形常量表达式:</span><br><span class="line">    	语句项；</span><br><span class="line">&#125;<span class="comment">//注意break的使用</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>多态</li>
+</ol>
+<p>​	多态（polymorphism），这大致意味着即便你不知道变量指向的是哪种对象，也能对其进行操作，且操作的行为将随对象所属的类型而异。</p>
+<ul>
+<li>多态和方法</li>
+</ul>
+<blockquote>
+<p>与对象属性相关的联的函数称为方法。每当无需知道对象是什么样的就能对其执行操作时，都是多态在起作用。</p>
+</blockquote>
+<ol start="2">
+<li>封装</li>
+</ol>
+<p>​	封装（encapsulation）指的是向外部隐藏不必要的细节。</p>
+<p>注意：封装和多态虽然很相似，但是，封装不同于多态。多态让你无需知道对象所属的类就能调用其方法，而封装让你无需知道对象的构造就能使用它。</p>
+<ol start="3">
+<li>继承</li>
+</ol>
+<p>​	</p>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><blockquote>
+<p>类——一种对象。每个对象都属于特定的类，并被称为该累的实例。</p>
+</blockquote>
+<p>在面向对象编程中，子类关系更加以为深长，因为类是由其支持的方法定义的。类的所有实例都有该类的所有方法，因此子类的多有实例都有超类的所有方法。因此，要定义子类，只需要定义多余出来的方法（或重写一些既有的方法）。</p>
+<ol>
+<li>创建自定义类</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">set_name</span>(<span class="params">self,name</span>):</span><br><span class="line">    self.name = name</span><br><span class="line">   </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">get_name</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> self.name</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello world! I&#x27;m &#123;&#125;&quot;</span>.<span class="built_in">format</span>(self.name))</span><br></pre></td></tr></table></figure>
 
 
 
 <ol start="2">
-<li>循环语句主要是三种</li>
+<li>属性、函数和方法</li>
 </ol>
-<ul>
-<li>while循环</li>
-<li>for循环</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>（表达式<span class="number">1</span>；表达式<span class="number">2</span>；表达式<span class="number">3</span>；）&#123;</span><br><span class="line">  循环语句；</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//表达式1:初始化部分，用于初始化值</span></span><br><span class="line"><span class="comment">//表达式2：条件判断部分，用于判断循环何时终止</span></span><br><span class="line"><span class="comment">//表达式3:调整部分，用于循环条件的调整</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;;)&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;hehe&quot;</span>);</span><br><span class="line">&#125;<span class="comment">//此情况下判断条件恒为真，程序为死循环</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>注意：不可在for循环体内改变循环变量，防止for循环失去控制；建议for语句的循环控制变量的取值采用“前闭后开”的写法。</p>
-<p>for循环初始化、调整和判断都可以省略，但是，for循环的判断部分如果省略，那判断条件就恒为真。</p>
-<ul>
-<li>do···while循环</li>
-</ul>
-<p>该情况下，循环语句至少执行一次。</p>
-<p>这里介绍两个关键字：break和continue。</p>
-<p>break：在循环中只要遇到break，就停止后面的所有循环，直接终止循环；</p>
-<p>continue：用于终止本次循环，也就是不再执行continue语句后面的代码，直接跳到循环的判断部分。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(i&lt;=<span class="number">10</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(i == <span class="number">5</span>)</span><br><span class="line">    <span class="keyword">continue</span>;<span class="comment">//直接返回到循环的判断部分</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">  i++;</span><br><span class="line">&#125;<span class="comment">//程序进入死循环</span></span><br></pre></td></tr></table></figure>
-
-
-
+<p>方法和函数的区别体现在前面提到的参数self上。方法（更准确的说是关联的方法）将其第一个参数关联到它所属的实例，因此无需提供这个参数。</p>
 <ol start="3">
-<li>getchar()与putchar()函数</li>
+<li><p>再谈隐藏</p>
+</li>
+<li><p>类的命名空间</p>
+</li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ch = getchar();</span><br><span class="line"><span class="built_in">putchar</span>(ch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>((ch = getchar()) != EOF)&#123;</span><br><span class="line">  <span class="built_in">putchar</span>(ch);</span><br><span class="line">&#125;<span class="comment">//EOF - end of file --- -1稳健的结束标志</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line"><span class="type">char</span> password[<span class="number">20</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,password);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;请确认(y/n)：&gt;&quot;</span>);</span><br><span class="line">ret = getchar();</span><br><span class="line"><span class="keyword">if</span>(ret == <span class="string">&#x27;y&#x27;</span>)&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;确认成功\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;放弃确认\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这段代码存在的问题是，字符串输入在缓存区中会以&#x27;\0&#x27;为结束的标志位，所以getchar（）函数是从缓存区中读取读取所需要的内容，这样就使得getchar（）读取的内容为&#x27;\n&#x27;,而不是y/n,此时代码就出现了问题。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//对代码进行修正</span></span><br><span class="line"><span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line"><span class="type">char</span> password[<span class="number">20</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,password);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;请确认(y/n)：&gt;&quot;</span>);</span><br><span class="line"><span class="keyword">while</span>((ch = getchar()) != <span class="string">&#x27;\n&#x27;</span>)&#123;</span><br><span class="line">  ;</span><br><span class="line">&#125;<span class="comment">//清空缓存区</span></span><br><span class="line">ret = getchar();</span><br><span class="line"><span class="keyword">if</span>(ret == <span class="string">&#x27;y&#x27;</span>)&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;确认成功\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;放弃确认\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在class语句中定义的代码都是在一个特殊的命名空间（类的命名空间）内执行的，而类的所有成员都可以访问这个命名空间。</p>
+<ol start="5">
+<li>指定超类</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Filter</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">init</span>(<span class="params">self</span>):</span><br><span class="line">    self.blocked = []</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">filter</span>(<span class="params">self,sequence</span>):</span><br><span class="line">    <span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> sequence <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> self.blocked]</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SPAMFilter</span>(<span class="title class_ inherited__">Filter</span>):			<span class="comment">#SPAMFilter是Filter的子类</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">init</span>(<span class="params">self</span>):							<span class="comment">#重写超类Filter的方法init</span></span><br><span class="line">    self.blocked = [<span class="string">&#x27;SPAM&#x27;</span>]</span><br></pre></td></tr></table></figure>
 
+
+
+<ol start="6">
+<li>接口和内省</li>
+</ol>
+<blockquote>
+<p>接口这一概念与多态相关，处理多态对象时，你只关心其接口——对外暴露的方法和属性。</p>
+</blockquote>
+<ol start="7">
+<li>抽象基类</li>
+</ol>
+<blockquote>
+<p>一般而言，抽象类是不能实例化的类，其职责是定义子类应实现的一组抽象方法。</p>
+</blockquote>
 
         </div>
 
@@ -248,11 +310,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：分支和循环</li>
+        <li>Post title：抽象</li>
         <li>Post author：Ruibao</li>
-        <li>Create time：2023-02-09 20:43:13</li>
+        <li>Create time：2023-04-11 23:22:24</li>
         <li>
-            Post link：https://radiateall777.github.io/2023/02/09/分支和循环/
+            Post link：https://radiateall777.github.io/2023/04/11/抽象/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -267,7 +329,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>&nbsp;
+                        <a href="/tags/python/">#python</a>&nbsp;
                     </li>
                 
             </ul>
@@ -276,29 +338,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/02/12/%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">分支和循环的练习</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2023/02/08/%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80%EF%BC%88%E4%BA%8C%EF%BC%89/"
+                           href="/2023/04/10/%E5%AD%97%E5%85%B8/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">初识C语言（二）</span>
+                                <span class="post-nav-title-item">字典</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -516,7 +563,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%92%8C%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">抽象和结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">自定义函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%AD%94%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">参数魔法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E9%AD%94%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">对象魔法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">类</span></a></li></ol>
     </div>
 </div>
         </aside>
