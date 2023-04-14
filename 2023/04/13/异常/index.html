@@ -9,7 +9,7 @@
     
     <title>
         
-            抽象 |
+            异常 |
         
         Ruibao&#39;s blog
     </title>
@@ -140,7 +140,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">抽象</span>
+            <span class="title-hover-animation">异常</span>
         </div>
 
         
@@ -159,8 +159,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2023-04-11 23:22:24</span>
-        <span class="mobile">2023-04-11 23:22</span>
+        <span class="pc">2023-04-13 11:06:14</span>
+        <span class="mobile">2023-04-13 11:06</span>
     </span>
     
     
@@ -179,12 +179,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>407 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 Mins</span>
         </span>
     
     
@@ -200,109 +200,28 @@
         
 
         <div class="article-content markdown-body">
-            <blockquote>
-<p>抽象就是如何将语句组成函数，这样可以简化代码的书写，实现同样的功能时，只需要调用一次函数就可以了，这与C语言中的函数是相似的概念。</p>
+            <h4 id="异常是什么"><a href="#异常是什么" class="headerlink" title="异常是什么"></a>异常是什么</h4><blockquote>
+<p>python中使用异常对象来表示异常状态，并在遇到错误时引发异常。异常对象未被处理（捕获）时，程序将终止并显示一条错误信息（traceback）。</p>
 </blockquote>
-<h4 id="抽象和结构"><a href="#抽象和结构" class="headerlink" title="抽象和结构"></a>抽象和结构</h4><p>抽象可以节省人力，最重要的优点是：抽象是程序能够被人理解的关键。函数其实就是结构化编程的核心。</p>
-<h4 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h4><ol>
-<li>给函数编写文档</li>
-</ol>
-<p>​	要给函数编写文档，以确保其他人能够理解，可添加注释。放在函数开头的字符串称为文档字符串，这将作为函数的一部分存储起来，这种给编写注释的方式非常有利于更好的理解函数的作用。</p>
-<ol start="2">
-<li>其实并不是函数的函数</li>
-</ol>
-<p>​	数学中的函数总是返回根据参数计算得到的结果。在python中有些函数什么都不返回，这样的函数称为过程，什么都不返回的函数不包含return语句，或者包含return语句，但没有在return后面指定值。</p>
-<h4 id="参数魔法"><a href="#参数魔法" class="headerlink" title="参数魔法"></a>参数魔法</h4><ol>
-<li>值从哪里来</li>
-</ol>
-<p>​	在def语句中，位于函数名后面的变量通常称为形参，而调用函数时提供的参数称为实参。</p>
-<ol start="2">
-<li>可以修改参数吗</li>
-</ol>
-<p>​	函数通过参数获取一系列值，参数不过是变量而已，行为完全与你预期相同，在函数内部给参数赋值对外部没有任何影响。</p>
-<ul>
-<li><p>为何要修改参数	</p>
-<p>在提高程序的抽象程度方面，使用函数来修改数据结构是一种不错的方式。</p>
-</li>
+<h4 id="让事情沿你指定的轨道出错"><a href="#让事情沿你指定的轨道出错" class="headerlink" title="让事情沿你指定的轨道出错"></a>让事情沿你指定的轨道出错</h4><ul>
+<li>raise语句</li>
 </ul>
-<ol start="3">
-<li>关键字参数和默认值</li>
-</ol>
-<blockquote>
-<p>注意:通常不应结合使用位置参数和关键字参数，除非必不可少的参数很少，而带默认值的可选参数很多，否则不应结合使用关键字参数和位置参数。</p>
-</blockquote>
-<ol start="4">
-<li>收集参数</li>
-</ol>
-<h4 id="对象魔法"><a href="#对象魔法" class="headerlink" title="对象魔法"></a>对象魔法</h4><blockquote>
-<p>对象意味着一系列数据以及一套访问和操作这些数据的方法。</p>
-</blockquote>
-<p>使用对象的好处</p>
-<ul>
-<li>多态：可对不同的对象执行相同的操作，而这些操作就像“被施了魔法“一样能够正常运行</li>
-<li>封装：对外部隐藏有关对象工作原理的细节</li>
-<li>继承：可基于通用类创建专用类</li>
-</ul>
+<p>​	要引发异常，可使用raise语句，并将一个类（必须是Exception的子类）或实例作为参数。将类作为参数时，将自动创建一个实例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">raise</span> Exception</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the first number: &#x27;</span>))</span><br><span class="line">y = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the second number: &#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(x/y)</span><br><span class="line"><span class="comment">#这个程序会在用户输入第二个数为0时出现异常，为捕获这种异常并对这种异常进行处理可重新上面程序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the first number: &#x27;</span>))</span><br><span class="line">	y = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the second number: &#x27;</span>))</span><br><span class="line">	<span class="built_in">print</span>(x/y)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;The second number can&#x27;t be zero&quot;</span>)</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<p>注意：异常从函数向外传播到调用函数的地方。如果异常没有被捕获，异常将向程序的最顶层传播，这意味着你可以使用try&#x2F;except来捕获所编写函数引发的异常。</p>
 <ol>
-<li>多态</li>
+<li>不用提供参数</li>
 </ol>
-<p>​	多态（polymorphism），这大致意味着即便你不知道变量指向的是哪种对象，也能对其进行操作，且操作的行为将随对象所属的类型而异。</p>
-<ul>
-<li>多态和方法</li>
-</ul>
-<blockquote>
-<p>与对象属性相关的联的函数称为方法。每当无需知道对象是什么样的就能对其执行操作时，都是多态在起作用。</p>
-</blockquote>
-<ol start="2">
-<li>封装</li>
-</ol>
-<p>​	封装（encapsulation）指的是向外部隐藏不必要的细节。</p>
-<p>注意：封装和多态虽然很相似，但是，封装不同于多态。多态让你无需知道对象所属的类就能调用其方法，而封装让你无需知道对象的构造就能使用它。</p>
-<ol start="3">
-<li>继承</li>
-</ol>
-<p>​	</p>
-<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><blockquote>
-<p>类——一种对象。每个对象都属于特定的类，并被称为该累的实例。</p>
-</blockquote>
-<p>在面向对象编程中，子类关系更加以为深长，因为类是由其支持的方法定义的。类的所有实例都有该类的所有方法，因此子类的多有实例都有超类的所有方法。因此，要定义子类，只需要定义多余出来的方法（或重写一些既有的方法）。</p>
-<ol>
-<li>创建自定义类</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">set_name</span>(<span class="params">self,name</span>):</span><br><span class="line">    self.name = name</span><br><span class="line">   </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">get_name</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> self.name</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello world! I&#x27;m &#123;&#125;&quot;</span>.<span class="built_in">format</span>(self.name))</span><br></pre></td></tr></table></figure>
+<p>​	捕获异常后，如果要重新引发他，可调用raise且不用提供任何参数（也可显式提供捕获到的异常）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MuffledCalculator</span>:</span><br><span class="line">  muffled = <span class="literal">False</span></span><br><span class="line">  <span class="keyword">del</span> calc(self,expr):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">eval</span>(expr)</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">      <span class="keyword">if</span> self.muffled:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Division by zero is illegal&#x27;</span>)</span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span></span><br><span class="line"><span class="comment">#发生除0行为时，如果启用了抑制功能，方法calc将隐式的返回None。换而言之如果启用了抑制功能，也不应依赖返回值。</span></span><br></pre></td></tr></table></figure>
 
 
 
-<ol start="2">
-<li>属性、函数和方法</li>
-</ol>
-<p>方法和函数的区别体现在前面提到的参数self上。方法（更准确的说是关联的方法）将其第一个参数关联到它所属的实例，因此无需提供这个参数。</p>
-<ol start="3">
-<li><p>再谈隐藏</p>
-</li>
-<li><p>类的命名空间</p>
-</li>
-</ol>
-<p>在class语句中定义的代码都是在一个特殊的命名空间（类的命名空间）内执行的，而类的所有成员都可以访问这个命名空间。</p>
-<ol start="5">
-<li>指定超类</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Filter</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">init</span>(<span class="params">self</span>):</span><br><span class="line">    self.blocked = []</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">filter</span>(<span class="params">self,sequence</span>):</span><br><span class="line">    <span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> sequence <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> self.blocked]</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SPAMFilter</span>(<span class="title class_ inherited__">Filter</span>):			<span class="comment">#SPAMFilter是Filter的子类</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">init</span>(<span class="params">self</span>):							<span class="comment">#重写超类Filter的方法init</span></span><br><span class="line">    self.blocked = [<span class="string">&#x27;SPAM&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="6">
-<li>接口和内省</li>
-</ol>
-<blockquote>
-<p>接口这一概念与多态相关，处理多态对象时，你只关心其接口——对外暴露的方法和属性。</p>
-</blockquote>
-<ol start="7">
-<li>抽象基类</li>
-</ol>
-<blockquote>
-<p>一般而言，抽象类是不能实例化的类，其职责是定义子类应实现的一组抽象方法。</p>
-</blockquote>
 
         </div>
 
@@ -310,11 +229,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：抽象</li>
+        <li>Post title：异常</li>
         <li>Post author：Ruibao</li>
-        <li>Create time：2023-04-11 23:22:24</li>
+        <li>Create time：2023-04-13 11:06:14</li>
         <li>
-            Post link：https://radiateall777.github.io/2023/04/11/抽象/
+            Post link：https://radiateall777.github.io/2023/04/13/异常/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -338,29 +257,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/04/13/%E5%BC%82%E5%B8%B8/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">异常</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2023/04/10/%E5%AD%97%E5%85%B8/"
+                           href="/2023/04/11/%E6%8A%BD%E8%B1%A1/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">字典</span>
+                                <span class="post-nav-title-item">抽象</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -578,7 +482,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%92%8C%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">抽象和结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">自定义函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%AD%94%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">参数魔法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E9%AD%94%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">对象魔法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">类</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">异常是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A9%E4%BA%8B%E6%83%85%E6%B2%BF%E4%BD%A0%E6%8C%87%E5%AE%9A%E7%9A%84%E8%BD%A8%E9%81%93%E5%87%BA%E9%94%99"><span class="nav-number">2.</span> <span class="nav-text">让事情沿你指定的轨道出错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8"><span class="nav-number">3.</span> <span class="nav-text">捕获异常</span></a></li></ol>
     </div>
 </div>
         </aside>

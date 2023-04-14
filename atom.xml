@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-04-12T02:25:11.825Z</updated>
+  <updated>2023-04-13T03:06:14.009Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>异常</title>
+    <link href="http://example.com/2023/04/13/%E5%BC%82%E5%B8%B8/"/>
+    <id>http://example.com/2023/04/13/%E5%BC%82%E5%B8%B8/</id>
+    <published>2023-04-13T03:06:14.009Z</published>
+    <updated>2023-04-13T03:06:14.009Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="异常是什么"><a href="#异常是什么" class="headerlink" title="异常是什么"></a>异常是什么</h4><blockquote><p>python中使用异常对象来表示异常状态，并在遇到错误时引发异常。异常对象未被处理（捕获）时，程序将终止并显示一条错误信息（traceback）。</p></blockquote><h4 id="让事情沿你指定的轨道出错"><a href="#让事情沿你指定的轨道出错" class="headerlink" title="让事情沿你指定的轨道出错"></a>让事情沿你指定的轨道出错</h4><ul><li>raise语句</li></ul><p>​要引发异常，可使用raise语句，并将一个类（必须是Exception的子类）或实例作为参数。将类作为参数时，将自动创建一个实例。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">raise</span> Exception</span><br></pre></td></tr></table></figure><h4 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the first number: &#x27;</span>))</span><br><span class="line">y = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the second number: &#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(x/y)</span><br><span class="line"><span class="comment">#这个程序会在用户输入第二个数为0时出现异常，为捕获这种异常并对这种异常进行处理可重新上面程序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the first number: &#x27;</span>))</span><br><span class="line">y = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;Enter the second number: &#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(x/y)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;The second number can&#x27;t be zero&quot;</span>)</span><br><span class="line">  </span><br></pre></td></tr></table></figure><p>注意：异常从函数向外传播到调用函数的地方。如果异常没有被捕获，异常将向程序的最顶层传播，这意味着你可以使用try&#x2F;except来捕获所编写函数引发的异常。</p><ol><li>不用提供参数</li></ol><p>​捕获异常后，如果要重新引发他，可调用raise且不用提供任何参数（也可显式提供捕获到的异常）。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MuffledCalculator</span>:</span><br><span class="line">  muffled = <span class="literal">False</span></span><br><span class="line">  <span class="keyword">del</span> calc(self,expr):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">eval</span>(expr)</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">      <span class="keyword">if</span> self.muffled:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Division by zero is illegal&#x27;</span>)</span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span></span><br><span class="line"><span class="comment">#发生除0行为时，如果启用了抑制功能，方法calc将隐式的返回None。换而言之如果启用了抑制功能，也不应依赖返回值。</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;异常是什么&quot;&gt;&lt;a href=&quot;#异常是什么&quot; class=&quot;headerlink&quot; title=&quot;异常是什么&quot;&gt;&lt;/a&gt;异常是什么&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;python中使用异常对象来表示异常状态，并在遇到错误时引发异常。异常对象未被处理（捕获）</summary>
+      
+    
+    
+    
+    
+    <category term="python" scheme="http://example.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>抽象</title>
